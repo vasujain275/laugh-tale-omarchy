@@ -90,7 +90,7 @@ alias recats='sudo nix flake lock --update-input nixCats && sudo nixos-rebuild s
 
 # Downloads Aliases
 alias yd='yt-dlp -f "bestvideo+bestaudio" --embed-chapters --external-downloader aria2c --concurrent-fragments 8 --throttled-rate 100K'
-alias ydm='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" --merge-output-format mp4 --embed-chapters --recode-video mp4 --external-downloader aria2c'
+alias ydm='yt-dlp -f "bestvideo[height<=720][vcodec^=avc1]+bestaudio[acodec^=mp4a]/best[height<=720][vcodec^=avc1]/best[height<=720]" --merge-output-format mp4 --embed-chapters --recode-video mp4 --external-downloader aria2c'
 alias td='yt-dlp --external-downloader aria2c -o "%(title)s."'
 alias download='aria2c --split=16 --max-connection-per-server=16 --timeout=600 --max-download-limit=10M --file-allocation=none'
 
@@ -104,7 +104,7 @@ warp ()
 
 # Other Aliases
 alias apps-space='expac -H M "%011m\t%-20n\t%10d" $(comm -23 <(pacman -Qqe | sort) <(pacman -Qqg base base-devel | sort)) | sort -n'
-alias files-space='sudo ncdu -x / --exclude /.snapshots --exclude /home/.snapshots'
+alias files-space='echo "🔹 Analyzing root filesystem (/)..."; sudo ncdu -x / --exclude /.snapshots --exclude /home/.snapshots; echo -e "\n🔹 Analyzing home directory (/home)..."; sudo ncdu -x /home --exclude /home/.snapshots'
 alias ld='lazydocker'
 alias docker-clean='docker container prune -f && docker image prune -f && docker network prune -f && docker volume prune -f'
 alias crdown='mpv --yt-dlp-raw-options=cookies-from-browser=brave'
