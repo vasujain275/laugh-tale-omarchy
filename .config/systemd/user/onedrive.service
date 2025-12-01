@@ -1,0 +1,12 @@
+[Unit]
+Description=OneDrive Sync Service
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/onedrive --monitor
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
