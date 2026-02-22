@@ -111,6 +111,8 @@ alias crdown='mpv --yt-dlp-raw-options=cookies-from-browser=brave'
 alias cr='cargo run'
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
 alias y='yazi'
+alias task='go-task'
+alias gearlever='flatpak run it.mijorus.gearlever'
 lsfind ()
 {
     ll "$1" | grep "$2"
@@ -184,13 +186,13 @@ function up() {
   flatpak update
 }
 
+eval "$(mise activate zsh)"
 
 # Shell Intergrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 # eval "$(fnm env --use-on-cd)"
-eval "$(mise activate zsh)"
 
 # Export Paths
 
