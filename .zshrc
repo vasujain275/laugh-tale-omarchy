@@ -206,5 +206,10 @@ esac
 
 # Local Bin
 export PATH="$HOME/.local/bin:$PATH"
+export CHROME_EXECUTABLE=chromium
+
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin"
 
 . "$HOME/.local/share/../bin/env"
+
